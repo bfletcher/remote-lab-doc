@@ -77,7 +77,7 @@ It is likely that some of the steps below will be scripted or supported in terms
 
 #### Connection steps
 
-1. *(Do we need to stop the lava-slave service first?)
+1. *(Do we need to stop the lava-slave service first?)*
 1. Create an encryption certificate:
 /usr/share/lava-dispatcher/create_certificate.py <dispatcher-name>
 1. Send the public key (to LAB admin
