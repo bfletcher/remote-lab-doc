@@ -11,6 +11,8 @@ Remote labs provide the following benefits:
  * Minimise hardware shipping/return cycle with problematic board debug
  * Can reach “consortium scale” with no single bottleneck/resource sink
 
+See [1] for more information.
+
 ### About this guide
 This document outlines the requirements and process needed to deploy a remote lab that will connect to a master LAVA instance managed by Linaro. 
 
@@ -24,12 +26,13 @@ Remote labs are an efficient way to scale board farms. They are not intended as 
 * Using an installation as a testbed to upstream integration support for new devices
 
 ### Assumptions
+* Contact with Linaro Lab team has been established
 * Ability to carry out a native install of LAVA components on local hardware running Debian Stretch
 * Power and USB control scripts can be tested outside of LAVA to confirm that they are working correctly
 * There is a supported communication path between the remote lab and the central server (see below for "Proving the Connection")
 
 ### Other Documentation
-The comprehensive LAVA documentation [1] also provides documentation which covers installing and configuring LAVA components.
+The comprehensive LAVA documentation [2] also provides documentation which covers installing and configuring LAVA components.
 
 ## Set Up Tasks
 
@@ -70,7 +73,6 @@ Connecting the remote dispatcher to the central server is the final step and key
 It is likely that some of the steps below will be scripted or supported in terms of Linaro supplying a complete lava-slave configuration file. However, because Linaro does not have admin access to the remote lab dispatcher, the actual configuration will need to be actioned by remote lab staff. 
 
 #### Connection steps
-
 1. *(Do we need to stop the lava-slave service first?)*
 1. Create an encryption certificate:
 /usr/share/lava-dispatcher/create_certificate.py <dispatcher-name>
@@ -106,4 +108,5 @@ It's assumed that the upgrade of the remote lab will be done in a timely manner.
 In the event of a problem with an upgrade, a temporary downgrade is possible.
 
 ## References
-[1] LAVA documentation *what's the official site?*
+[1] *(link to the PDF of the remote lab slide deck)*
+[2] LAVA documentation *what's the official site?*
