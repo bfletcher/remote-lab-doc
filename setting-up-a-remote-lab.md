@@ -3,7 +3,8 @@
 ## Introduction
 
 ### What are remote labs?
-Remote labs are a LAVA development allowing CI with a single centralised dashboard server and multiple distributed board farms some of which can be in hardware vendor or other partner premises. 
+Remote labs are a LAVA development allowing CI with a single centralised dashboard server and multiple distributed board farms - some of which can be in hardware vendor or other partner premises. the result is a large distributed board farm with LAVA testing invoked and reported via a central LAVA server.
+
 Remote labs provide the following benefits:
  * DUT management in the hands of originators/owners 
  * No need to educate the central lab personnel on every board from every vendor
@@ -11,10 +12,10 @@ Remote labs provide the following benefits:
  * Can reach “consortium scale” with no single bottleneck/resource sink
 
 ### About this guide
-This document outlines the requirements and process needed to deploy a remote lab that will connect to Linaro's master LAVA instance. 
+This document outlines the requirements and process needed to deploy a remote lab that will connect to a master LAVA instance managed by Linaro. 
 
 ### Reasons to set up a remote lab
-Remote labs are intended to support partners who are working within an established project but looking to extend coverage e.g. in terms of the number of a particular supported device. Established projects can be one of LKFT, Trusted Firmware, ... . For example, various Linaro Members are working toward setting up a remote lab that will connect to Linaro's LKFT master LAVA server.
+Remote labs are intended to support partners who have or expect a long-term relationship with an established project (e.g. LKFT, trusted Firmware) and are who looking to increase testing on a specific supported devices where they have interest and/or expertise. For example, various Linaro Members are working toward setting up a their own remote labs that will connect to Linaro's LKFT master LAVA server and increase the number of tests and configurations for devices they are interested in.
 
 ### Out of scope for remote labs
 Remote labs are an efficient way to scale board farms. They are not intended as a way to develop device or new feature support. The following are contra-indications for working as a remote lab:
@@ -92,15 +93,17 @@ service lava-slave start
 ## Maintenance
  
 ### Point-of-Contact/Support
+The Linaro Lab team need contact details for the primary point-of-contact person for the remote lab and another name for illness/vacation contact.
 A mailing list has been created specifically for remote lab users to distribute information and for posting support questions. 
 *(needs details on how to join the mailing list)*
 
 ### Upgrades
-
-### Troubleshooting
+It's assumed that a remote lab will closely follow the central server in terms of LAVA version upgrades. Because Linaro does not have admin access to the remote lab dispatcher, the actual upgrade will need to be actioned by remote lab staff. The remote lab point-of-contact person will be contacted by the Linaro Lab team when an upgrade is planned. 
+The LAVA dispatcher does not store any state and all local DUT configuration should be stored in Device dictionary entries.
+It's assumed that the upgrade of the remote lab will be done in a timely manner. A mismatch of versions between the remote and the server is not a supported configuration. 
 
 ### Downgrades
+In the event of a problem with an upgrade, a temporary downgrade is possible.
 
 ## References
-
 [1] LAVA documentation *what's the official site?*
