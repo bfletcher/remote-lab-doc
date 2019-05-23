@@ -109,4 +109,5 @@ In the event of a problem with an upgrade, a temporary downgrade is possible.
 
 ## References
 [1] *(link to the PDF of the remote lab slide deck)*
+
 [2] LAVA documentation *what's the official site?*
