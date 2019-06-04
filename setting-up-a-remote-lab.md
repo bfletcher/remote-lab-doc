@@ -51,7 +51,7 @@ If the connection test is not successful, it will be necessary either to debug t
 ### Installing lava-dispatcher
 This installation assumes a native install on Debian Stretch
 
-```
+```shell
 # Activate the backports
 apt-get update
 apt-get install --no-install-recommends --yes wget gnupg ca-certificates apt-transport-https
@@ -73,23 +73,26 @@ Connecting the remote dispatcher to the central server is the final step and key
 It is likely that some of the steps below will be scripted or supported in terms of Linaro supplying a complete lava-slave configuration file. However, because Linaro does not have admin access to the remote lab dispatcher, the actual configuration will need to be actioned by remote lab staff. 
 
 #### Connection steps
-1. *(Do we need to stop the lava-slave service first?)*
 1. Create an encryption certificate:
-/usr/share/lava-dispatcher/create_certificate.py <dispatcher-name>
-1. Send the public key (to LAB admin
-/etc/lava-dispatcher/certificates.d/<dispatcher-name>.key
-1. Install the master certificate:
-cp master.key /etc/lava-dispatcher/certificates.d/master.key
-1. Configure the slave by editing /etc/lava-dispatcher/lava-slave and uncommenting the variables you want to define:
-MASTER_URL=<master_url>
-LOGGER_URL=<logger_url>
+```shell
+/usr/share/lava-dispatcher/create_certificate.py $DISPATCHER_NAME
+```
+1. Send the public key (**/etc/lava-dispatcher/certificates.d/<dispatcher-name>.key**) to LAB admins.
+1. Install the master certificate in **/etc/lava-dispatcher/certificates.d/master.key**
+1. Configure the slave by editing **/etc/lava-dispatcher/lava-slave** and uncommenting the variables you want to define:
+```shell
+MASTER_URL="$MASTER_URL"
+LOGGER_URL="$LOGGER_URL"
 ENCRYPT="--encrypt"
 MASTER_CERT="--master-cert /etc/lava-dispatcher/certificates.d/master.key"
-SLAVE_CERT=--slave-cert /etc/lava-dispatcher/certificates.d/<dispatcher-name>.key_secret
-HOSTNAME="--hostname <dispatcher-name>"
-1. Start lava-slave service
-service lava-slave start
-1. Watch the logs in /var/log/lava-dispatcher/lava-slave.log
+SLAVE_CERT="--slave-cert /etc/lava-dispatcher/certificates.d/$DISPATCHER_NAME.key_secret"
+HOSTNAME="--hostname $DISPATCHER_NAME"
+```
+1. Restart lava-slave service
+```shell
+service lava-slave restart
+```
+1. Watch the logs in **/var/log/lava-dispatcher/lava-slave.log**
 1. Check that the worker is online in the lava web interface.
 
 ## Maintenance
@@ -110,4 +113,4 @@ In the event of a problem with an upgrade, a temporary downgrade is possible.
 ## References
 [1] *(link to the PDF of the remote lab slide deck)*
 
-[2] LAVA documentation *what's the official site?*
+[2] [LAVA documentation](https://docs.lavasoftware.org/lava/)
