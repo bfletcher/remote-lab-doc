@@ -99,8 +99,6 @@ service lava-slave restart
  
 ### Point-of-Contact/Support
 The Linaro Lab team need contact details for the primary point-of-contact person for the remote lab and another name for illness/vacation contact.
-A mailing list has been created specifically for remote lab users to distribute information and for posting support questions. 
-*(needs details on how to join the mailing list)*
 
 ### Upgrades
 It's assumed that a remote lab will closely follow the central server in terms of LAVA version upgrades. Because Linaro does not have admin access to the remote lab dispatcher, the actual upgrade will need to be actioned by remote lab staff. The remote lab point-of-contact person will be contacted by the Linaro Lab team when an upgrade is planned. 
