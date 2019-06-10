@@ -37,11 +37,15 @@ The comprehensive LAVA documentation [2] also provides documentation which cover
 ## Set Up Tasks
 
 ## Infrastructure requirements
-*(needs more of the wisdom of infrastructure from Lab folks or LAVA docs)*
-* There are minimum requirements (CPU, memory, I/O robustness) for the hardware that hosts the Worker instance
-* DUT interface hardware (USB, power control) needs to be robust
-* All infrastructure control should be via scripts invoked in device dictionary entries rather than any temptation towards dispatcher hard coding 
+* There are minimum requirements (CPU, memory, I/O robustness) for the hardware that hosts the Worker instance.
+The typical guidance for the CPU is that it should have more available cores than the number of devices connected to the worker.
+As to RAM, a rough guide would be 8GB + 1GB per device over 8, in multiples of 8
+Hard drives are less problematic for workers. They are effectively scratch space, but reasonable performance and capacity is advised. 256GB is usually more than adequate. A 1Gb LAN connection is preferred.
+* DUT interface hardware (USB, power control, relay control) needs to be robust
+The Lab team have recommendations for PDU, USB Hubs anc Relay control based on our own experience. Scripts supporting our preferred vendors are available in the lava-lab repo (https://git.linaro.org/lava/lava-lab.git/) specifically in the shared/lab-scripts sub-ditectory.
+* All infrastructure control should be via scripts invoked in device dictionary entries rather than any temptation towards dispatcher hard coding
 * For a many-Worker Remote Lab, scalable administration, deployment & configuration tools should be used
+The Cambridge Lab uses "salt" as the admin tool, and the lava-lab repo contains all the salt configuration which can act as a guide.
 
 ### Proving the Connection
 Whilst the LAVA dispatcher's communication with the central server is based on standard protocols, and all communication originates at the dispatcher, It's not possible to guarantee that a remote LAVA dispatcher will be able to communicate with the central server in all possible situations. This can be because of corporate or other firewalls and other infrastructure constraints.
