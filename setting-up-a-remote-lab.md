@@ -113,6 +113,6 @@ It's assumed that the upgrade of the remote lab will be done in a timely manner.
 In the event of a problem with an upgrade, a temporary downgrade is possible.
 
 ## References
-[1] *(link to the PDF of the remote lab slide deck)*
+[1] [Remote Labs Presentation](LAVA%20Remote%20Labs.pdf)
 
 [2] [LAVA documentation](https://docs.lavasoftware.org/lava/)
