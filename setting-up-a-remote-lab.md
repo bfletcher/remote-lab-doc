@@ -2,10 +2,10 @@
 
 ## Introduction
 
-### What are remote labs?
-Remote labs are a LAVA development allowing CI with a single centralised dashboard server and multiple distributed board farms - some of which can be in hardware vendor or other partner premises. the result is a large distributed board farm with LAVA testing invoked and reported via a central LAVA server.
+### What are Remote Labs?
+Remote Labs are a LAVA development allowing CI with a single centralised dashboard server and multiple distributed board farms - some of which can be in hardware vendor or other partner premises. the result is a large distributed board farm with LAVA testing invoked and reported via a central LAVA server.
 
-Remote labs provide the following benefits:
+Remote Labs provide the following benefits:
  * DUT management in the hands of originators/owners 
  * No need to educate the central lab personnel on every board from every vendor
  * Minimise hardware shipping/return cycle with problematic board debug
